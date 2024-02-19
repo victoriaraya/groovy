@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
+import { Josefin_Sans } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const josephin_sans = Josefin_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-josephin-sans",
+  weight: ["700", "400", "500", "600"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +22,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <ClerkProvider
+      appearance={{
+        baseTheme: dark,
+      }}
+    >
+      <html lang="en">
+        <body className={josephin_sans.className}>{children}</body>
+      </html>
+    </ClerkProvider>
   );
 }
+
+//<body className={inter.className}>{children}</body>
