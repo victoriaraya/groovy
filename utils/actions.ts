@@ -16,4 +16,4 @@ export async function getArtistsInfo([...ids]) {
     artists.push(artist);
   }
   return artists;
-}
+} //

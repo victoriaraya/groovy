@@ -12,8 +12,8 @@ export const artists = [
     bio: "Don Toliver is a captivating American artist renowned for his distinct blend of hip-hop, R&B, and melodic trap. Emerging from Houston, Texas, his music resonates with its hypnotic beats, soulful vocals, and introspective lyrics. With his magnetic stage presence and innovative sound, Toliver continues to carve his own path in the music industry, captivating audiences and earning accolades along the way.",
   },
   {
-    name: "Playboi Carti",
-    bio: "Playboi Carti, an influential figure in the hip-hop and trap music scene, is renowned for his distinctive style and experimental sound. Originally from Atlanta, Georgia, Carti's music is characterized by its infectious beats, catchy hooks, and unique vocal delivery. With his avant-garde fashion sense and energetic performances, he has garnered a dedicated fanbase and critical acclaim. Continuously pushing boundaries, Carti remains a trailblazer in contemporary rap music, shaping the sound of a generation.",
+    name: "Amr Diab",
+    bio: "Amr Diab, the Egyptian pop icon, has dominated the Middle Eastern music scene for decades with his charismatic voice and infectious melodies. Born in Port Said, Egypt, he rose to fame in the 1980s and has since released numerous chart-topping albums and singles. Diab's music transcends borders, blending traditional Arabic music with contemporary pop elements, earning him a massive global fanbase. With countless timeless hits he remains a cultural phenomenon and a symbol of Egyptian pride. His enduring legacy continues to inspire generations of listeners worldwide.",
   },
   {
     name: "Cleo Sol",

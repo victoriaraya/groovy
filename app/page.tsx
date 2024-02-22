@@ -1,5 +1,4 @@
 "use client";
-import { Lobster } from "next/font/google";
 import React, { useState } from "react";
 import { artists } from "@/prisma/artists";
 import Image from "next/image";
@@ -7,13 +6,6 @@ import { FaMinus } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6";
 import { CgProfile } from "react-icons/cg";
 import Link from "next/link";
-
-const lobster = Lobster({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-lobster",
-  weight: "400",
-});
 
 export default function Home() {
   const [hoveredElement, setHoveredElement] = useState("");
@@ -24,16 +16,6 @@ export default function Home() {
 
   return (
     <div className="bg-zinc-700 text-white">
-      <header
-        className={`flex-1 flex-row text-center ${lobster.className} text-4xl py-2`}
-      >
-        <span className="justify-center">Groovy</span>
-        <span className="flex justify-end -mt-9 mr-4">
-          <Link href="/sign-in">
-            <CgProfile />
-          </Link>
-        </span>
-      </header>
       <div className="grid grid-cols-3 gap-y-7 gap-x-5">
         <div
           id="wizkid"
@@ -43,19 +25,21 @@ export default function Home() {
           }}
           onMouseLeave={handleMouseLeave}
         >
-          <Image
-            className="h-full w-full"
-            src="/images/wizkid1.jpg"
-            width={314}
-            height={314}
-            alt={artists[0].name}
-          />
-          <div className="flex gap-1 absolute bottom-2 -right-7 text-3xl bg-zinc-700 rounded-md p-1">
-            <span className="animate-pulse">
-              {hoveredElement == "wizkid" ? <FaPlus /> : <FaMinus />}
-            </span>
-            {artists[0].name}
-          </div>
+          <Link href="/artist/1">
+            <Image
+              className="h-full w-full transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300"
+              src="/images/wizkid.jpg"
+              width={314}
+              height={314}
+              alt={artists[0].name}
+            />
+            <div className="flex gap-1 absolute bottom-2 -right-7 text-3xl bg-zinc-700 rounded-md p-1">
+              <span className="animate-pulse">
+                {hoveredElement == "wizkid" ? <FaPlus /> : <FaMinus />}
+              </span>
+              {artists[0].name}
+            </div>
+          </Link>
         </div>
         <div></div>
         <div
@@ -65,19 +49,21 @@ export default function Home() {
           }}
           onMouseLeave={handleMouseLeave}
         >
-          <Image
-            className="h-full w-full"
-            src="/images/dontoliver1.jpg"
-            width={400}
-            height={400}
-            alt={artists[2].name}
-          />
-          <div className="flex gap-1 absolute bottom-2 -right-7 text-3xl bg-zinc-700 rounded-md p-1">
-            <span className="animate-pulse">
-              {hoveredElement == "don" ? <FaPlus /> : <FaMinus />}
-            </span>
-            {artists[2].name}
-          </div>
+          <Link href="/artist/3">
+            <Image
+              className="h-full w-full transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300"
+              src="/images/dontoliver.jpg"
+              width={400}
+              height={400}
+              alt={artists[2].name}
+            />
+            <div className="flex gap-1 absolute bottom-2 -right-7 text-3xl bg-zinc-700 rounded-md p-1">
+              <span className="animate-pulse">
+                {hoveredElement == "don" ? <FaPlus /> : <FaMinus />}
+              </span>
+              {artists[2].name}
+            </div>
+          </Link>
         </div>
         <div></div>
         <div
@@ -87,41 +73,45 @@ export default function Home() {
           }}
           onMouseLeave={handleMouseLeave}
         >
-          <Image
-            className="h-full w-full"
-            src="/images/kaliuchis1.jpg"
-            width={400}
-            height={400}
-            alt={artists[5].name}
-          />
-          <div className="flex gap-1 absolute bottom-2 -left-16 text-3xl bg-zinc-700 rounded-md p-1">
-            <span className="animate-pulse">
-              {hoveredElement == "kali" ? <FaPlus /> : <FaMinus />}
-            </span>
-            {artists[5].name}
-          </div>
+          <Link href="/artist/6">
+            <Image
+              className="h-full w-full transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300"
+              src="/images/kaliuchis.jpg"
+              width={400}
+              height={400}
+              alt={artists[5].name}
+            />
+            <div className="flex gap-1 absolute bottom-2 -left-16 text-3xl bg-zinc-700 rounded-md p-1">
+              <span className="animate-pulse">
+                {hoveredElement == "kali" ? <FaPlus /> : <FaMinus />}
+              </span>
+              {artists[5].name}
+            </div>
+          </Link>
         </div>
         <div></div>
         <div
-          className="relative grayscale hover:grayscale-0 h-[340px] w-[455px] ml-14 mt-7"
+          className="relative grayscale hover:grayscale-0 h-[320px] w-[500px] ml-14 mt-7"
           onMouseEnter={() => {
-            setHoveredElement("playboi");
+            setHoveredElement("amr");
           }}
           onMouseLeave={handleMouseLeave}
         >
-          <Image
-            className="h-full w-full"
-            src="/images/playboicarti1.jpg"
-            width={400}
-            height={400}
-            alt={artists[3].name}
-          />
-          <div className="flex gap-1 absolute bottom-2 -right-6 text-3xl bg-zinc-700 rounded-md p-1">
-            <span className="animate-pulse">
-              {hoveredElement == "playboi" ? <FaPlus /> : <FaMinus />}
-            </span>
-            {artists[3].name}
-          </div>
+          <Link href="/artist/4">
+            <Image
+              className="h-full w-full transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300"
+              src="/images/amrdiab.jpg"
+              width={400}
+              height={400}
+              alt={artists[3].name}
+            />
+            <div className="flex gap-1 absolute bottom-2 -right-[28px] text-3xl bg-zinc-700 rounded-md p-1">
+              <span className="animate-pulse">
+                {hoveredElement == "amr" ? <FaPlus /> : <FaMinus />}
+              </span>
+              {artists[3].name}
+            </div>
+          </Link>
         </div>
         <div></div>
         <div
@@ -131,19 +121,21 @@ export default function Home() {
           }}
           onMouseLeave={handleMouseLeave}
         >
-          <Image
-            className="h-full w-full"
-            src="/images/rema1.jpg"
-            width={400}
-            height={400}
-            alt={artists[1].name}
-          />
-          <div className="flex gap-1 absolute bottom-2 -left-16 text-3xl bg-zinc-700 rounded-md p-1">
-            <span className="animate-pulse">
-              {hoveredElement == "rema" ? <FaPlus /> : <FaMinus />}
-            </span>
-            {artists[1].name}
-          </div>
+          <Link href="/artist/2">
+            <Image
+              className="h-full w-full transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300"
+              src="/images/rema.jpg"
+              width={400}
+              height={400}
+              alt={artists[1].name}
+            />
+            <div className="flex gap-1 absolute bottom-2 -left-16 text-3xl bg-zinc-700 rounded-md p-1">
+              <span className="animate-pulse">
+                {hoveredElement == "rema" ? <FaPlus /> : <FaMinus />}
+              </span>
+              {artists[1].name}
+            </div>
+          </Link>
         </div>
         <div></div>
         <div
@@ -153,41 +145,45 @@ export default function Home() {
           }}
           onMouseLeave={handleMouseLeave}
         >
-          <Image
-            className="h-full w-full"
-            src="/images/cleosol1.jpg"
-            width={400}
-            height={400}
-            alt={artists[4].name}
-          />
-          <div className="flex gap-1 absolute bottom-2 -left-16 text-3xl bg-zinc-700 rounded-md p-1">
-            <span className="animate-pulse">
-              {hoveredElement == "cleo" ? <FaPlus /> : <FaMinus />}
-            </span>
-            {artists[4].name}
-          </div>
+          <Link href="/artist/5">
+            <Image
+              className="h-full w-full transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300"
+              src="/images/cleosol.jpg"
+              width={400}
+              height={400}
+              alt={artists[4].name}
+            />
+            <div className="flex gap-1 absolute bottom-2 -left-16 text-3xl bg-zinc-700 rounded-md p-1">
+              <span className="animate-pulse">
+                {hoveredElement == "cleo" ? <FaPlus /> : <FaMinus />}
+              </span>
+              {artists[4].name}
+            </div>
+          </Link>
         </div>
         <div></div>
         <div
-          className="relative grayscale hover:grayscale-0 ml-24 mt-7 w-[370px] h-[370px]"
+          className="relative grayscale hover:grayscale-0 ml-24 mt-7 w-[375px] h-[375px]"
           onMouseEnter={() => {
             setHoveredElement("kaytra");
           }}
           onMouseLeave={handleMouseLeave}
         >
-          <Image
-            className="h-full w-full"
-            src="/images/kaytranada1.jpg"
-            width={400}
-            height={400}
-            alt={artists[7].name}
-          />
-          <div className="flex gap-1 absolute bottom-2 -right-10 text-3xl bg-zinc-700 rounded-md p-1">
-            <span className="animate-pulse">
-              {hoveredElement == "kaytra" ? <FaPlus /> : <FaMinus />}
-            </span>
-            {artists[7].name}
-          </div>
+          <Link href="/artist/8">
+            <Image
+              className="h-full w-full transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300"
+              src="/images/kaytranada.jpg"
+              width={400}
+              height={400}
+              alt={artists[7].name}
+            />
+            <div className="flex gap-1 absolute bottom-2 -right-8 text-3xl bg-zinc-700 rounded-md p-1">
+              <span className="animate-pulse">
+                {hoveredElement == "kaytra" ? <FaPlus /> : <FaMinus />}
+              </span>
+              {artists[7].name}
+            </div>
+          </Link>
         </div>
         <div></div>
         <div
@@ -197,22 +193,26 @@ export default function Home() {
           }}
           onMouseLeave={handleMouseLeave}
         >
-          <Image
-            className="h-full w-full"
-            src="/images/beenieman1.jpg"
-            width={400}
-            height={400}
-            alt={artists[6].name}
-          />
-          <div className="flex gap-1 absolute bottom-2 -left-16 text-3xl bg-zinc-700 rounded-md p-1">
-            <span className="animate-pulse">
-              {hoveredElement == "beenie" ? <FaPlus /> : <FaMinus />}
-            </span>
-            {artists[6].name}
-          </div>
+          <Link href="/artist/7">
+            <Image
+              className="h-full w-full transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300"
+              src="/images/beenieman.jpg"
+              width={400}
+              height={400}
+              alt={artists[6].name}
+            />
+            <div className="flex gap-1 absolute bottom-2 -left-16 text-3xl bg-zinc-700 rounded-md p-1">
+              <span className="animate-pulse">
+                {hoveredElement == "beenie" ? <FaPlus /> : <FaMinus />}
+              </span>
+              {artists[6].name}
+            </div>
+          </Link>
         </div>
       </div>
-      <footer className="text-center py-1.5 mt-3">Made by Victoria Raya</footer>
+      <footer className="text-center p-3.5 mt-5 text-lg">
+        Made by Victoria Raya
+      </footer>
     </div>
   );
 }
