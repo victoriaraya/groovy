@@ -15,6 +15,7 @@ model Artist {
   createdAt DateTime @default(now())
   name String
   bio String 
+  attractionId String
   users User[]
 }
 

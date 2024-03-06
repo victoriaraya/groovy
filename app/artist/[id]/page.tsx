@@ -27,6 +27,8 @@ import {
 } from "@/components/songs";
 import Link from "next/link";
 import Image from "next/image";
+import FindShows from "@/components/FindShows";
+import Chat from "@/components/Chat";
 
 import React from "react";
 import ImageCarousel from "@/components/Carousel";
@@ -64,14 +66,18 @@ const ArtistPage = async ({ params }) => {
             <p className="pl-2 pb-1">Our favorites</p>
             <div>{songs[artistName]}</div>
           </div>
-          <div className="text-xl pl-10">
-            Bio
+          <div className="text-xl pl-5 pr-2">
+            <p className="pb-1">Bio</p>
             <p className="w-[350px] text-base text-left">{artist.bio}</p>
           </div>
         </div>
-        <div className="flex gap-11 pt-10">
-          <div>Find shows near you </div>
-          <div>chat about artist</div>
+        <div className="flex pt-5">
+          <div className="basis-1/2 pl-4">
+            <FindShows artist={artist} />
+          </div>
+          <div className="basis-1/2 pl-4">
+            <Chat artist={artist} />
+          </div>
         </div>
       </div>
     </div>

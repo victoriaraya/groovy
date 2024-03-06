@@ -7,6 +7,7 @@ export const wizkid1 = () => {
       frameBorder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
+      key="w1"
     ></iframe>
   );
 };
@@ -20,6 +21,7 @@ export const wizkid2 = () => {
       frameBorder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
+      key="w2"
     ></iframe>
   );
 };
@@ -33,6 +35,7 @@ export const wizkid3 = () => {
       frameBorder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
+      key="w3"
     ></iframe>
   );
 };
@@ -46,6 +49,7 @@ export const dontoliver1 = () => {
       frameBorder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
+      key="dt1"
     ></iframe>
   );
 };
@@ -59,6 +63,7 @@ export const dontoliver2 = () => {
       frameBorder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
+      key="dt2"
     ></iframe>
   );
 };
@@ -72,6 +77,7 @@ export const dontoliver3 = () => {
       frameBorder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
+      key="dt3"
     ></iframe>
   );
 };
@@ -79,12 +85,13 @@ export const dontoliver3 = () => {
 export const kaliuchis1 = () => {
   return (
     <iframe
-      src="https://open.spotify.com/embed/track/21RAJfkAbaq90RWJQWoxkx?utm_source=generator&theme=0"
+      src="https://open.spotify.com/embed/track/21RAJfkAbaq85RWJQWoxkx?utm_source=generator&theme=0"
       width="100%"
       height="90"
       frameBorder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
+      key="ku1"
     ></iframe>
   );
 };
@@ -98,6 +105,7 @@ export const kaliuchis2 = () => {
       frameBorder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
+      key="ku2"
     ></iframe>
   );
 };
@@ -111,6 +119,7 @@ export const kaliuchis3 = () => {
       frameBorder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
+      key="ku3"
     ></iframe>
   );
 };
@@ -124,6 +133,7 @@ export const amrdiab1 = () => {
       frameBorder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
+      key="ad1"
     ></iframe>
   );
 };
@@ -137,6 +147,7 @@ export const amrdiab2 = () => {
       frameBorder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
+      key="ad2"
     ></iframe>
   );
 };
@@ -150,6 +161,7 @@ export const amrdiab3 = () => {
       frameBorder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
+      key="ad3"
     ></iframe>
   );
 };
@@ -163,6 +175,7 @@ export const rema1 = () => {
       frameBorder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
+      key="r1"
     ></iframe>
   );
 };
@@ -176,6 +189,7 @@ export const rema2 = () => {
       frameBorder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
+      key="r2"
     ></iframe>
   );
 };
@@ -189,6 +203,7 @@ export const rema3 = () => {
       frameBorder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
+      key="r3"
     ></iframe>
   );
 };
@@ -202,6 +217,7 @@ export const cleosol1 = () => {
       frameBorder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
+      key="cs1"
     ></iframe>
   );
 };
@@ -215,6 +231,7 @@ export const cleosol2 = () => {
       frameBorder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
+      key="cs2"
     ></iframe>
   );
 };
@@ -228,6 +245,7 @@ export const cleosol3 = () => {
       frameBorder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
+      key="cs3"
     ></iframe>
   );
 };
@@ -241,6 +259,7 @@ export const kaytranada1 = () => {
       frameBorder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
+      key="k1"
     ></iframe>
   );
 };
@@ -254,6 +273,7 @@ export const kaytranada2 = () => {
       frameBorder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
+      key="k2"
     ></iframe>
   );
 };
@@ -267,6 +287,7 @@ export const kaytranada3 = () => {
       frameBorder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
+      key="k3"
     ></iframe>
   );
 };
@@ -280,6 +301,7 @@ export const beenieman1 = () => {
       frameBorder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
+      key="bm1"
     ></iframe>
   );
 };
@@ -293,6 +315,7 @@ export const beenieman2 = () => {
       frameBorder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
+      key="bm2"
     ></iframe>
   );
 };
@@ -306,6 +329,7 @@ export const beenieman3 = () => {
       frameBorder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
+      key="bm3"
     ></iframe>
   );
 };
