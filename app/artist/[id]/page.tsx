@@ -28,10 +28,12 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import FindShows from "@/components/FindShows";
+import AddToMyArtists from "@/components/AddToMyArtists";
 import Chat from "@/components/Chat";
 
-import React from "react";
+import React from "react"; //delete maybe
 import ImageCarousel from "@/components/Carousel";
+import { currentUser } from "@clerk/nextjs";
 
 const songs = {
   wizkid: [wizkid1(), wizkid2(), wizkid3()],
@@ -46,6 +48,7 @@ const songs = {
 
 const ArtistPage = async ({ params }) => {
   const artist = await getArtistInfo(+params.id);
+  const user = await currentUser();
 
   // reg ex to trim inner white space, 'Don Toliver' would be 'dontoliver'
   let artistName = artist.name.replace(/\s+/g, "").toLowerCase();
@@ -56,7 +59,12 @@ const ArtistPage = async ({ params }) => {
 
   return (
     <div className="bg-zinc-700 text-white grid grid-cols-[1fr_.80fr]">
-      <div className="text-9xl p-4 pl-7 self-end pb-8">{artist.name}</div>
+      <div>
+        <span className="flex justify-end p-2">
+          <AddToMyArtists artist={artist} userId={user ? user.id : "none"} />
+        </span>
+        <p className="text-9xl p-4 pl-7 self-end pb-8">{artist.name}</p>
+      </div>
       <div className="row-span-2 pt-2">
         <ImageCarousel imagePaths={imagePaths} />
       </div>

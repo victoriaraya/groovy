@@ -1,4 +1,5 @@
 "use client";
+import { addToMyShows } from "@/utils/actions";
 import { useState } from "react";
 
 const FindShows = ({ artist }) => {
@@ -190,7 +191,11 @@ const FindShows = ({ artist }) => {
               className="rounded-sm mx-2 text-black bg-gray-100 p-3 my-3 text-center text-lg"
             >
               <div className="flex justify-end">
-                <button className="rounded-sm px-2 h-8 -mr-3 -mb-3 -mt-5 pt-1.5 group">
+                {/* add this feature to search results */}
+                <button
+                  className="rounded-sm px-2 h-8 -mr-3 -mb-3 -mt-5 pt-1.5 group"
+                  onClick={() => addToMyShows(event)}
+                >
                   <span className="text-2xl group-hover:hidden">+</span>
                   <span className="hidden px-1 group-hover:z-40 relative rounded-sm mt-1 group-hover:visible group-hover:flex group-hover:bg-gray-400 group-hover:border-solid group-hover:border-slate-800 group-hover:border-2 group-hover:-mr-1.5 text-black group-active:bg-gray-500">
                     Add to my shows
@@ -220,5 +225,3 @@ const FindShows = ({ artist }) => {
 };
 
 export default FindShows;
-
-//group-hover:mt-3 group-hover:flex group-hover:bg-gray-300 group-hover:border-solid group-hover:border-slate-800 group-hover:border-l-2 group-hover:border-t-2

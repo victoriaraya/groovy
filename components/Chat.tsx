@@ -3,9 +3,11 @@ import { useState } from "react";
 import OpenAI from "openai";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { RiRobot2Line } from "react-icons/ri";
+import { FaBullseye } from "react-icons/fa";
 
+//OPENAI_API_KEY - may have to name env var like this
 const openai = new OpenAI({
-  apiKey: process.env.NEXT_PUBLIC_OPENAI_API,
+  apiKey: process.env.NEXT_PUBLIC_OPENAI_API, //fix env var so api isn't available to frontend, look at fullstack ai app github for how api key is used and stored
   dangerouslyAllowBrowser: true,
 });
 
@@ -13,17 +15,17 @@ const Chat = ({ artist }) => {
   const [message, setMessage] = useState("");
   const [chats, setChats] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
 
   const chat = async (e, message) => {
     e.preventDefault();
-
     if (!message) return;
+
     setIsTyping(true);
 
     let msgs = chats;
     msgs.push({ role: "user", content: message });
     setChats(msgs);
-
     setMessage("");
 
     try {
@@ -41,7 +43,11 @@ const Chat = ({ artist }) => {
       msgs.push(completion.choices[0].message);
       setChats(msgs);
       setIsTyping(false);
+      setErrorMessage(false);
     } catch (e) {
+      setIsTyping(false);
+      setChats([]);
+      setErrorMessage(true);
       console.error(e);
     }
   };
@@ -79,18 +85,36 @@ const Chat = ({ artist }) => {
             ))
           : ""}
       </div>
+      <div
+        className={
+          errorMessage
+            ? "rounded-sm text-black bg-gray-100 p-2 my-2 mr-4 text-center"
+            : "hidden"
+        }
+      >
+        <p>
+          {"Sorry, we're having an issue right now, please try again later."}
+        </p>
+      </div>
       <div className={isTyping ? "text-center p-1 pb-2" : "hidden"}>
         <p>
           <i>{isTyping ? "Typing" : ""}</i>
         </p>
       </div>
-      <form onSubmit={(e) => chat(e, message)}>
+      <form
+        onSubmit={(e) => chat(e, message)}
+        className={
+          (chats && chats.length) || errorMessage
+            ? "flex justify-center mr-4 mt-3"
+            : ""
+        }
+      >
         <input
           type="text"
           name="message"
           value={message}
           placeholder={
-            chats.length
+            chats.length || errorMessage
               ? "Type your question here"
               : `Try "What is ${artist.name}'s real name?`
           }
