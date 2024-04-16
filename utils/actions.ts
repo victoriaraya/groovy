@@ -17,13 +17,3 @@ export async function getArtistsInfo([...ids]) {
   }
   return artists;
 } //
-
-export async function addToMyShows(event) {
-  console.log(event.name);
-  //
-}
-
-export async function removeFromMyArtists(artist) {
-  console.log("removed:", artist.name);
-  //
-}

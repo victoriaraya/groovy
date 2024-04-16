@@ -34,7 +34,7 @@ const Chat = ({ artist }) => {
           {
             role: "system",
             content:
-              "You are an assitant to answer questions about various music artists",
+              "You are an assitant to answer questions about various music artists and only that. If asked about other topics, please politely decline",
           },
           ...chats,
         ],
@@ -121,6 +121,7 @@ const Chat = ({ artist }) => {
           onChange={(e) => setMessage(e.target.value)}
           className="text-black p-1 rounded-sm w-[85%] bg-white mb-2"
         />
+        {/* <button>send</button> maybe add send button */}
       </form>
     </div>
   );

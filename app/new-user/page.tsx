@@ -26,7 +26,7 @@ const createNewUser = async () => {
 const NewUser = async () => {
   await createNewUser();
   return (
-    <div className="bg-zinc-700 flex justify-center items-center text-4xl animate-spin h-12 w-12 mr-3">
+    <div className="bg-zinc-700 flex justify-center items-center text-4xl animate-spin h-full w-full mr-3">
       🎧
     </div>
   );

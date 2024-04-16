@@ -81,7 +81,8 @@ const ArtistPage = async ({ params }) => {
         </div>
         <div className="flex pt-5">
           <div className="basis-1/2 pl-4">
-            <FindShows artist={artist} />
+            <FindShows artist={artist} userId={user ? user.id : "none"} />
+            {/* maybe fix ^ */}
           </div>
           <div className="basis-1/2 pl-4">
             <Chat artist={artist} />

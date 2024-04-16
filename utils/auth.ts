@@ -31,3 +31,15 @@ export const getUserArtists = async () => {
   //then use thits function to render and dif button in artist...
   //...page that says see my artists insted of add to my artists
 };
+
+export const getUserShows = async () => {
+  const { userId } = await auth();
+
+  const user = await prisma.user.findUnique({
+    where: {
+      clerkId: userId,
+    },
+  });
+
+  return user?.shows;
+};

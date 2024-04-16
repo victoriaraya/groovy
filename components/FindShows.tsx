@@ -1,8 +1,9 @@
 "use client";
-import { addToMyShows } from "@/utils/actions";
-import { useState } from "react";
 
-const FindShows = ({ artist }) => {
+import { useState } from "react";
+import AddToMyShows from "./AddToMyShows";
+
+const FindShows = ({ artist, userId }) => {
   const [location, setlocation] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [noShows, setNoShows] = useState(false);
@@ -27,6 +28,8 @@ const FindShows = ({ artist }) => {
             city: event._embedded.venues[0].city.name,
             state: event._embedded.venues[0].state.name,
             url: event.url,
+            artistId: artist.id, //
+            imageUrl: event.images[0].url,
           });
         }
       }
@@ -59,6 +62,8 @@ const FindShows = ({ artist }) => {
             ? (eventInfo.state = `${event._embedded.venues[0].state.name}`)
             : (eventInfo.country = `${event._embedded.venues[0].country.name}`);
           eventInfo.url = `${event.url}`;
+          eventInfo.artistId = `${artist.id}`; //
+          eventInfo.imageUrl = `${event.images[0].url}`;
           eventList.push(eventInfo);
         }
       }
@@ -146,7 +151,7 @@ const FindShows = ({ artist }) => {
           <option>WY</option>
           <option>DC</option>
         </select>
-        <button className="rounded-sm mx-2 text-black bg-gray-300 hover:bg-gray-400 active:bg-gray-500 border-solid border-slate-800 border-2 py-[1px] px-2">
+        <button className="rounded-sm mx-2 text-black bg-gray-300 hover:bg-gray-400 active:bg-gray-500 pb-[1px] pt-[3px] px-2">
           Go!
         </button>
       </form>
@@ -178,7 +183,7 @@ const FindShows = ({ artist }) => {
               setNoShows(false);
               findAllShows();
             }}
-            className="rounded-sm my-2 mt-3 text-black bg-gray-300 hover:bg-gray-400 active:bg-gray-500 border-solid border-slate-800 border-2 p-1.5"
+            className="rounded-sm my-2 mt-3 text-black bg-gray-300 hover:bg-gray-400 active:bg-gray-500 p-1.5 pt-2"
           >
             Click here to expand your search
           </button>
@@ -190,8 +195,9 @@ const FindShows = ({ artist }) => {
               key={index}
               className="rounded-sm mx-2 text-black bg-gray-100 p-3 my-3 text-center text-lg"
             >
-              <div className="flex justify-end">
-                {/* add this feature to search results */}
+              <AddToMyShows event={event} userId={userId} />
+              {/* add this feature to search results */}
+              {/* <div className="flex justify-end">
                 <button
                   className="rounded-sm px-2 h-8 -mr-3 -mb-3 -mt-5 pt-1.5 group"
                   onClick={() => addToMyShows(event)}
@@ -201,7 +207,8 @@ const FindShows = ({ artist }) => {
                     Add to my shows
                   </span>
                 </button>
-              </div>
+              </div> */}
+
               <p className="p-1 mt-1 mx-2 z-10">{event.name}</p>
               <p className="pb-2">
                 {event.city}, {event.state ? event.state : event.country}

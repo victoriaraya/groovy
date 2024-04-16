@@ -1,7 +1,7 @@
 "use client";
 
-import { addUserArtist } from "@/utils/api";
-import revalidate from "@/utils/revalidateAddArtist";
+import { addUserShow } from "@/utils/api";
+import revalidateShow from "@/utils/revalidateAddShow";
 import {
   Modal,
   ModalContent,
@@ -11,19 +11,19 @@ import {
 import Link from "next/link";
 import { FaPlus } from "react-icons/fa6";
 
-const AddToMyArtists = ({ artist, userId }) => {
+const AddToMyShows = ({ event, userId }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
-  const handleClick = async (artist) => {
-    await addUserArtist(artist);
+  const handleClick = async (event) => {
+    await addUserShow(event);
     onOpen();
-    await revalidate();
+    await revalidateShow();
   };
 
   return (
     <button
       className="group"
-      onClick={userId === "none" ? onOpen : () => handleClick(artist)}
+      onClick={userId === "none" ? onOpen : () => handleClick(event)}
     >
       {userId === "none" ? (
         <Modal
@@ -58,10 +58,10 @@ const AddToMyArtists = ({ artist, userId }) => {
               <>
                 <ModalBody className="text-center justify-center text-xl py-5 flex-row gap-1.5">
                   Added! Click
-                  <Link href="/profile/my-artists" className="underline">
+                  <Link href="/profile/my-shows" className="underline">
                     here
                   </Link>
-                  to see your artists.
+                  to see your shows.
                 </ModalBody>
               </>
             )}
@@ -72,10 +72,10 @@ const AddToMyArtists = ({ artist, userId }) => {
         <FaPlus className="my-[0.3rem] -mr-1" />
       </span>
       <span className="hidden px-1 group-hover:z-40 rounded-sm my-1 group-hover:visible group-hover:flex group-hover:bg-white group-hover:border-solid group-hover:border-white group-hover:border-2 group-hover:-mr-1 text-black text-xl group-active:bg-gray-400 group-active:border-gray-400">
-        Add to my artists
+        Add to my shows
       </span>
     </button>
   );
 };
 
-export default AddToMyArtists;
+export default AddToMyShows;
