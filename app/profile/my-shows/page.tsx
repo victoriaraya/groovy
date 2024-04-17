@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getUserShows } from "@/utils/auth";
 import { getArtistInfo } from "@/utils/actions";
+import RemoveFromMyShows from "@/components/RemoveFromMyShows";
 
 const MyShows = async () => {
   const shows = await getUserShows();
@@ -8,29 +9,12 @@ const MyShows = async () => {
     const [name, artistId, url, imageUrl] = show.split("~");
     return { name, artistId: parseInt(artistId), url, imageUrl };
   });
-  // take out imageurl, figure out how to get artistname from artistId
-  // so I can use the artist image
-
-  // const artists = parsedShows.map(async (show) => {
-  //   const artist = await getArtistInfo(show.artistId);
-  //   return artist.name;
-  // });
-
-  // async function parseShows(shows) {
-  //   const parsedShows = await Promise.all(
-  //     shows.map(async (show) => {
-  //       const [name, artistId, url] = show.split("~");
-  //       const artist = await getArtistName(+artistId);
-  //       return { name, artistName: artist.name, url };
-  //     })
-  //   );
-  //   return parsedShows;
-  // }
-  // let parsedShows;
-  // parseShows(shows).then((result) => {
-  //   parsedShows = result;
-  // });
-  // console.log(parsedShows);
+  // take out imageurl
+  let artistNames = [];
+  for (let show of parsedShows) {
+    const artist = await getArtistInfo(show.artistId);
+    artistNames.push(artist.name);
+  }
 
   return (
     <div className="h-full w-full">
@@ -44,25 +28,24 @@ const MyShows = async () => {
           page to add.
         </h1>
       )}
-      <div className="grid grid-cols-3 gap-1 mx-10">
+      <div className="grid grid-cols-3 gap-1 gap-y-5 mx-10">
         {parsedShows.map((show, index) => (
           <div key={index} className="flex w-[300px] gap-4">
             <a href={show.url}>
-              {/* <Image
+              <Image
                 className="h-[375px] w-[300px] rounded-sm"
-                src={show.imageUrl}
-                // src={`/images/${show.artistName
-                //   .replace(/\s+/g, "")
-                //   .toLowerCase()}2.jpg`}
+                src={`/images/${artistNames[index]
+                  .replace(/\s+/g, "")
+                  .toLowerCase()}2.jpg`}
                 width={300}
                 height={375}
                 alt={show.name}
-              /> */}
-              <div className="flex justify-between text-white text-xl pt-1 h-10 w-full">
+              />
+              <div className="flex justify-between text-white text-lg pt-1 h-10 w-full">
                 <p>{show.name}</p>
               </div>
             </a>
-            {/* <RemoveFromMyShows event={event} /> */}
+            <RemoveFromMyShows event={shows[index]} />
           </div>
         ))}
       </div>

@@ -30,10 +30,10 @@ import Image from "next/image";
 import FindShows from "@/components/FindShows";
 import AddToMyArtists from "@/components/AddToMyArtists";
 import Chat from "@/components/Chat";
-
-import React from "react"; //delete maybe
 import ImageCarousel from "@/components/Carousel";
 import { currentUser } from "@clerk/nextjs";
+import { getUserArtists } from "@/utils/auth";
+import RemoveFromMyArtistsModal from "@/components/RemoveFromMyArtistsWithModal"; //
 
 const songs = {
   wizkid: [wizkid1(), wizkid2(), wizkid3()],
@@ -49,6 +49,15 @@ const songs = {
 const ArtistPage = async ({ params }) => {
   const artist = await getArtistInfo(+params.id);
   const user = await currentUser();
+  let hasArtist;
+  if (user) {
+    const userArtists = await getUserArtists();
+    hasArtist = userArtists.some(
+      (artistInfo) => artistInfo.name == artist.name
+    );
+  } else {
+    hasArtist = false;
+  }
 
   // reg ex to trim inner white space, 'Don Toliver' would be 'dontoliver'
   let artistName = artist.name.replace(/\s+/g, "").toLowerCase();
@@ -60,9 +69,18 @@ const ArtistPage = async ({ params }) => {
   return (
     <div className="bg-zinc-700 text-white grid grid-cols-[1fr_.80fr]">
       <div>
-        <span className="flex justify-end p-2">
-          <AddToMyArtists artist={artist} userId={user ? user.id : "none"} />
-        </span>
+        {/* double check to make sure this works when no one is signed in */}
+        {hasArtist ? (
+          <span className="flex justify-end p-2">
+            {await new Promise((resolve) => setTimeout(resolve, 3000))}
+            <RemoveFromMyArtistsModal artist={artist} />
+          </span>
+        ) : (
+          <span className="flex justify-end p-2">
+            {await new Promise((resolve) => setTimeout(resolve, 3000))}
+            <AddToMyArtists artist={artist} userId={user ? user.id : "none"} />
+          </span>
+        )}
         <p className="text-9xl p-4 pl-7 self-end pb-8">{artist.name}</p>
       </div>
       <div className="row-span-2 pt-2">
@@ -82,7 +100,6 @@ const ArtistPage = async ({ params }) => {
         <div className="flex pt-5">
           <div className="basis-1/2 pl-4">
             <FindShows artist={artist} userId={user ? user.id : "none"} />
-            {/* maybe fix ^ */}
           </div>
           <div className="basis-1/2 pl-4">
             <Chat artist={artist} />

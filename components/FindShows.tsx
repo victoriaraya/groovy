@@ -1,7 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react"; //
 import AddToMyShows from "./AddToMyShows";
+import RemoveFromMyShowsModal from "./RemoveFromMyShowsWithModal";
+import { getUserShowsAPI } from "@/utils/api";
+import { button, user } from "@nextui-org/react";
 
 const FindShows = ({ artist, userId }) => {
   const [location, setlocation] = useState("");
@@ -9,7 +12,7 @@ const FindShows = ({ artist, userId }) => {
   const [noShows, setNoShows] = useState(false);
   const [searchResultsAll, setSearchResultsAll] = useState([]);
   const [noShowsMessage, setNoShowsMessage] = useState(false);
-  const [isHovering, setIsHovering] = useState(false);
+  const [userShows, setUserShows] = useState([]);
 
   const findShow = async (location) => {
     try {
@@ -28,8 +31,8 @@ const FindShows = ({ artist, userId }) => {
             city: event._embedded.venues[0].city.name,
             state: event._embedded.venues[0].state.name,
             url: event.url,
-            artistId: artist.id, //
-            imageUrl: event.images[0].url,
+            artistId: artist.id,
+            imageUrl: event.images[0].url, //
           });
         }
       }
@@ -62,8 +65,8 @@ const FindShows = ({ artist, userId }) => {
             ? (eventInfo.state = `${event._embedded.venues[0].state.name}`)
             : (eventInfo.country = `${event._embedded.venues[0].country.name}`);
           eventInfo.url = `${event.url}`;
-          eventInfo.artistId = `${artist.id}`; //
-          eventInfo.imageUrl = `${event.images[0].url}`;
+          eventInfo.artistId = `${artist.id}`;
+          eventInfo.imageUrl = `${event.images[0].url}`; //
           eventList.push(eventInfo);
         }
       }
@@ -75,6 +78,23 @@ const FindShows = ({ artist, userId }) => {
         console.error("Error during search:", e);
       }
     }
+  };
+
+  useEffect(() => {
+    const fetchUserShows = async () => {
+      if (userId != "none") {
+        // check how it works when no user is signed in
+        const shows = await getUserShowsAPI({ userId });
+        await new Promise((resolve) => setTimeout(resolve, 3000)); //
+        setUserShows(shows);
+      }
+    };
+
+    fetchUserShows();
+  }, [userId, userShows]); // double check to make sure this works, maybe shorter timeout
+
+  const hasShow = (eventName) => {
+    return userShows.some((show) => show.includes(eventName));
   };
 
   return (
@@ -99,6 +119,7 @@ const FindShows = ({ artist, userId }) => {
           }}
           className="text-black cursor-pointer p-1 rounded-sm mx-0.5"
         >
+          <option> </option>
           <option>AL</option>
           <option>AK</option>
           <option>AZ</option>
@@ -161,6 +182,13 @@ const FindShows = ({ artist, userId }) => {
               key={index}
               className="rounded-sm mx-2 text-black bg-gray-100 p-3 my-3 text-center text-lg"
             >
+              {userId !== "none" && hasShow(event.name) ? (
+                <RemoveFromMyShowsModal event={userShows[index]} />
+              ) : (
+                <AddToMyShows event={event} userId={userId} />
+              )}
+              {/* {add this to search results all} */}
+
               <p className="p-1">{event.name}</p>
               <p className="pb-2">
                 {event.city}, {event.state}
@@ -171,7 +199,6 @@ const FindShows = ({ artist, userId }) => {
               >
                 Click here for tickets
               </a>
-              <button>+</button>
             </div>
           ))
         : null}
@@ -196,19 +223,6 @@ const FindShows = ({ artist, userId }) => {
               className="rounded-sm mx-2 text-black bg-gray-100 p-3 my-3 text-center text-lg"
             >
               <AddToMyShows event={event} userId={userId} />
-              {/* add this feature to search results */}
-              {/* <div className="flex justify-end">
-                <button
-                  className="rounded-sm px-2 h-8 -mr-3 -mb-3 -mt-5 pt-1.5 group"
-                  onClick={() => addToMyShows(event)}
-                >
-                  <span className="text-2xl group-hover:hidden">+</span>
-                  <span className="hidden px-1 group-hover:z-40 relative rounded-sm mt-1 group-hover:visible group-hover:flex group-hover:bg-gray-400 group-hover:border-solid group-hover:border-slate-800 group-hover:border-2 group-hover:-mr-1.5 text-black group-active:bg-gray-500">
-                    Add to my shows
-                  </span>
-                </button>
-              </div> */}
-
               <p className="p-1 mt-1 mx-2 z-10">{event.name}</p>
               <p className="pb-2">
                 {event.city}, {event.state ? event.state : event.country}

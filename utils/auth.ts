@@ -26,10 +26,6 @@ export const getUserArtists = async () => {
   });
 
   return user.artists;
-
-  // check if an artist belongs to a user
-  //then use thits function to render and dif button in artist...
-  //...page that says see my artists insted of add to my artists
 };
 
 export const getUserShows = async () => {

@@ -50,18 +50,32 @@ export const addUserShow = async (event) => {
   }
 };
 
-// export const deleteUserShow = async (artist) => {
-//   const res = await fetch(
-//     new Request(createURL("/api/shows"), {
-//       method: "DELETE",
-//       body: JSON.stringify({ artist }),
-//     }),
-//     { cache: "no-store" },
-//     { next: { tags: ["userShowsRemove"] } }
-//   );
+export const deleteUserShow = async (event) => {
+  const res = await fetch(
+    new Request(createURL("/api/shows"), {
+      method: "DELETE",
+      body: JSON.stringify({ event }),
+    }),
+    { cache: "no-store" },
+    { next: { tags: ["userShowsRemove"] } }
+  );
 
-//   if (res.ok) {
-//     const data = await res.json();
-//     return data.data;
-//   }
-// }
+  if (res.ok) {
+    const data = await res.json();
+    return data.data;
+  }
+};
+
+export const getUserShowsAPI = async ({ userId }) => {
+  const res = await fetch(
+    new Request(createURL("/api/shows"), {
+      method: "PUT",
+      body: JSON.stringify({ userId }),
+    })
+  );
+
+  if (res.ok) {
+    const data = await res.json();
+    return data.data;
+  }
+};
