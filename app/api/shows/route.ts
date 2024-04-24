@@ -5,6 +5,7 @@ import { NextResponse } from "next/server";
 export const PATCH = async (request) => {
   const { event } = await request.json();
   const user = await getUserByClerkID();
+
   const updatedUser = await prisma.user.update({
     where: {
       id: user.id,
@@ -59,3 +60,26 @@ export const PUT = async (request) => {
 
   return NextResponse.json({ data: shows });
 };
+
+// export const PATCH = async (request) => {
+//   const { event } = await request.json();
+//   const user = await getUserByClerkID();
+// const { shows } = await prisma.user.findUnique({
+//   where: {
+//     id: user.id,
+//   },
+//   select: {
+//     shows: true,
+//   },
+// }); maybe do check to see if show is already in shows and if it is don't add
+//   const updatedUser = await prisma.user.update({
+//     where: {
+//       id: user.id,
+//     },
+//     data: {
+//       shows: { push: event.name + "~" + event.artistId + "~" + event.url },
+//     },
+//   });
+
+//   return NextResponse.json({ data: updatedUser });
+// };

@@ -6,8 +6,8 @@ const Profile = async () => {
   const user = await currentUser();
 
   return (
-    <div className="h-full">
-      <h1 className="flex text-center text-8xl text-white pt-16">
+    <div className="h-screen">
+      <h1 className="flex text-[100px] text-white p-4">
         Hello, {`${user.username}`}!
       </h1>
     </div>

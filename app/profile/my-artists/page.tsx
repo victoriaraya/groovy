@@ -8,7 +8,7 @@ const MyArtists = async () => {
   const artists = await getUserArtists();
 
   return (
-    <div className="h-full w-full">
+    <div className={artists.length <= 3 ? "h-screen w-full" : "h-full w-full"}>
       {artists.length ? (
         <h1 className="flex justify-start align-top text-white text-lg pb-6">
           Click on an artist to go to their page

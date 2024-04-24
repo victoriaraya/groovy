@@ -32,7 +32,6 @@ const FindShows = ({ artist, userId }) => {
             state: event._embedded.venues[0].state.name,
             url: event.url,
             artistId: artist.id,
-            imageUrl: event.images[0].url, //
           });
         }
       }
@@ -66,7 +65,6 @@ const FindShows = ({ artist, userId }) => {
             : (eventInfo.country = `${event._embedded.venues[0].country.name}`);
           eventInfo.url = `${event.url}`;
           eventInfo.artistId = `${artist.id}`;
-          eventInfo.imageUrl = `${event.images[0].url}`; //
           eventList.push(eventInfo);
         }
       }
@@ -85,7 +83,7 @@ const FindShows = ({ artist, userId }) => {
       if (userId != "none") {
         // check how it works when no user is signed in
         const shows = await getUserShowsAPI({ userId });
-        await new Promise((resolve) => setTimeout(resolve, 3000)); //
+        await new Promise((resolve) => setTimeout(resolve, 2000));
         setUserShows(shows);
       }
     };
@@ -187,8 +185,6 @@ const FindShows = ({ artist, userId }) => {
               ) : (
                 <AddToMyShows event={event} userId={userId} />
               )}
-              {/* {add this to search results all} */}
-
               <p className="p-1">{event.name}</p>
               <p className="pb-2">
                 {event.city}, {event.state}
@@ -222,7 +218,12 @@ const FindShows = ({ artist, userId }) => {
               key={index}
               className="rounded-sm mx-2 text-black bg-gray-100 p-3 my-3 text-center text-lg"
             >
-              <AddToMyShows event={event} userId={userId} />
+              {userId !== "none" && hasShow(event.name) ? (
+                <RemoveFromMyShowsModal event={userShows[index]} />
+              ) : (
+                <AddToMyShows event={event} userId={userId} />
+              )}
+              {/* <AddToMyShows event={event} userId={userId} /> */}
               <p className="p-1 mt-1 mx-2 z-10">{event.name}</p>
               <p className="pb-2">
                 {event.city}, {event.state ? event.state : event.country}

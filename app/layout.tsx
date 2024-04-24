@@ -7,7 +7,6 @@ import Link from "next/link";
 import { CgProfile } from "react-icons/cg";
 import { Providers } from "./providers";
 import { auth } from "@clerk/nextjs";
-// import { ArtistProvider } from "@/contexts/ArtistContext";
 
 const lobster = Lobster({
   subsets: ["latin"],
@@ -57,14 +56,10 @@ export default async function RootLayout({
                 </Link>
               </span>
             </header>
-            {/* <ArtistProvider> */}
             {children}
-            {/* </ArtistProvider> */}
           </Providers>
         </body>
       </html>
     </ClerkProvider>
   );
 }
-
-//<body className={inter.className}>{children}</body>
