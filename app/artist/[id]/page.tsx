@@ -69,7 +69,6 @@ const ArtistPage = async ({ params }) => {
   return (
     <div className="bg-zinc-700 text-white grid grid-cols-[1fr_.80fr]">
       <div>
-        {/* double check to make sure this works when no one is signed in */}
         {hasArtist ? (
           <span className="flex justify-end p-2">
             {await new Promise((resolve) => setTimeout(resolve, 3000))}
@@ -81,20 +80,28 @@ const ArtistPage = async ({ params }) => {
             <AddToMyArtists artist={artist} userId={user ? user.id : "none"} />
           </span>
         )}
-        <p className="text-9xl p-4 pl-7 self-end pb-8">{artist.name}</p>
+        <p
+          className={
+            artist.name == "Kaytranada"
+              ? "text-[110px] p-4 pl-7 self-end pb-8"
+              : "text-9xl p-4 pl-7 self-end pb-8"
+          }
+        >
+          {artist.name}
+        </p>
       </div>
       <div className="row-span-2 pt-2">
         <ImageCarousel imagePaths={imagePaths} />
       </div>
       <div className="flex flex-col">
         <div className="flex">
-          <div className="text-xl pl-4">
+          <div className="text-xl pl-4 basis-1/2">
             <p className="pl-2 pb-1">Our favorites</p>
-            <div>{songs[artistName]}</div>
+            <div className="">{songs[artistName]}</div>
           </div>
-          <div className="text-xl pl-5 pr-2">
+          <div className="text-xl ml-8 pr-3 basis-1/2">
             <p className="pb-1">Bio</p>
-            <p className="w-[350px] text-base text-left">{artist.bio}</p>
+            <p className="text-base text-left">{artist.bio}</p>
           </div>
         </div>
         <div className="flex pt-5">

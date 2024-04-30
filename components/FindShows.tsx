@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react"; //
+import { useState, useEffect } from "react";
 import AddToMyShows from "./AddToMyShows";
 import RemoveFromMyShowsModal from "./RemoveFromMyShowsWithModal";
 import { getUserShowsAPI } from "@/utils/api";
-import { button, user } from "@nextui-org/react";
+// import { button, user } from "@nextui-org/react";
 
 const FindShows = ({ artist, userId }) => {
   const [location, setlocation] = useState("");
@@ -17,11 +17,10 @@ const FindShows = ({ artist, userId }) => {
   const findShow = async (location) => {
     try {
       const response = await fetch(
-        `https://app.ticketmaster.com/discovery/v2/events?apikey=${process.env.NEXT_PUBLIC_TICKETMASTER_API}&attractionId=${artist.attractionId}&locale=*&stateCode=${location}`,
-        { method: "GET" }
+        `/api/ticketmaster?attractionId=${artist.attractionId}&location=${location}`
       );
       const data = await response.json();
-      const events = data._embedded.events;
+      const events = data.data._embedded.events;
       let eventList = [];
       for (let event of events) {
         const substr = event.name.split(" ")[0];
@@ -48,11 +47,10 @@ const FindShows = ({ artist, userId }) => {
   const findAllShows = async () => {
     try {
       const response = await fetch(
-        `https://app.ticketmaster.com/discovery/v2/events?apikey=${process.env.NEXT_PUBLIC_TICKETMASTER_API}&attractionId=${artist.attractionId}&locale=*`,
-        { method: "GET" }
+        `/api/ticketmasterAll?attractionId=${artist.attractionId}`
       );
       const data = await response.json();
-      const events = data._embedded.events;
+      const events = data.data._embedded.events;
       let eventList = [];
       for (let event of events) {
         const substr = event.name.split(" ")[0];
@@ -81,15 +79,14 @@ const FindShows = ({ artist, userId }) => {
   useEffect(() => {
     const fetchUserShows = async () => {
       if (userId != "none") {
-        // check how it works when no user is signed in
         const shows = await getUserShowsAPI({ userId });
-        await new Promise((resolve) => setTimeout(resolve, 2000));
+        await new Promise((resolve) => setTimeout(resolve, 1500));
         setUserShows(shows);
       }
     };
 
     fetchUserShows();
-  }, [userId, userShows]); // double check to make sure this works, maybe shorter timeout
+  }, [userId, userShows]); // double check to make sure this works
 
   const hasShow = (eventName) => {
     return userShows.some((show) => show.includes(eventName));
@@ -171,7 +168,7 @@ const FindShows = ({ artist, userId }) => {
           <option>DC</option>
         </select>
         <button className="rounded-sm mx-2 text-black bg-gray-300 hover:bg-gray-400 active:bg-gray-500 pb-[1px] pt-[3px] px-2">
-          Go!
+          Go
         </button>
       </form>
       {searchResults.length
@@ -219,11 +216,10 @@ const FindShows = ({ artist, userId }) => {
               className="rounded-sm mx-2 text-black bg-gray-100 p-3 my-3 text-center text-lg"
             >
               {userId !== "none" && hasShow(event.name) ? (
-                <RemoveFromMyShowsModal event={userShows[index]} />
+                <RemoveFromMyShowsModal event={userShows[index]} /> //make sure this changes when clicked
               ) : (
                 <AddToMyShows event={event} userId={userId} />
               )}
-              {/* <AddToMyShows event={event} userId={userId} /> */}
               <p className="p-1 mt-1 mx-2 z-10">{event.name}</p>
               <p className="pb-2">
                 {event.city}, {event.state ? event.state : event.country}

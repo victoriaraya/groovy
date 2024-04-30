@@ -225,7 +225,7 @@ export const cleosol1 = () => {
 export const cleosol2 = () => {
   return (
     <iframe
-      src="https://open.spotify.com/embed/track/6aQ7nlAEOhhRnsHi6eY0zT?utm_source=generator&theme=0"
+      src="https://open.spotify.com/embed/track/6UOruoEj8UAA9iEtjbjJra?utm_source=generator&theme=0"
       width="100%"
       height="90"
       frameBorder="0"
@@ -239,7 +239,7 @@ export const cleosol2 = () => {
 export const cleosol3 = () => {
   return (
     <iframe
-      src="https://open.spotify.com/embed/track/1cwQahQmKdmKaCijjdNEv3?utm_source=generator&theme=0"
+      src="https://open.spotify.com/embed/track/4ZTC6KvnQxloiwmT0Yhypy?utm_source=generator&theme=0"
       width="100%"
       height="90"
       frameBorder="0"

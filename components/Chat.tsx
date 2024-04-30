@@ -1,15 +1,9 @@
 "use client";
 import { useState } from "react";
-import OpenAI from "openai";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { RiRobot2Line } from "react-icons/ri";
 import { FaBullseye } from "react-icons/fa";
-
-//OPENAI_API_KEY - may have to name env var like this
-const openai = new OpenAI({
-  apiKey: process.env.NEXT_PUBLIC_OPENAI_API, //fix env var so api isn't available to frontend, look at fullstack ai app github for how api key is used and stored
-  dangerouslyAllowBrowser: true,
-});
+import { chatAPI } from "@/utils/api";
 
 const Chat = ({ artist }) => {
   const [message, setMessage] = useState("");
@@ -29,18 +23,8 @@ const Chat = ({ artist }) => {
     setMessage("");
 
     try {
-      const completion = await openai.chat.completions.create({
-        messages: [
-          {
-            role: "system",
-            content:
-              "You are an assitant to answer questions about various music artists and only that. If asked about other topics, please politely decline",
-          },
-          ...chats,
-        ],
-        model: "gpt-3.5-turbo",
-      });
-      msgs.push(completion.choices[0].message);
+      const message = await chatAPI({ chats });
+      msgs.push(message);
       setChats(msgs);
       setIsTyping(false);
       setErrorMessage(false);
@@ -119,9 +103,11 @@ const Chat = ({ artist }) => {
               : `Try "What is ${artist.name}'s real name?`
           }
           onChange={(e) => setMessage(e.target.value)}
-          className="text-black p-1 rounded-sm w-[85%] bg-white mb-2"
+          className="text-black p-1 rounded-sm w-[80%] bg-white mb-2"
         />
-        {/* <button>send</button> maybe add send button */}
+        <button className="rounded-sm mx-2 text-black bg-gray-300 hover:bg-gray-400 active:bg-gray-500 pb-[1px] pt-[3px] px-2 h-[34px]">
+          Send
+        </button>
       </form>
     </div>
   );

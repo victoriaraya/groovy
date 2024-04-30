@@ -79,3 +79,17 @@ export const getUserShowsAPI = async ({ userId }) => {
     return data.data;
   }
 };
+
+export const chatAPI = async ({ chats }) => {
+  const res = await fetch(
+    new Request(createURL("/api/chat"), {
+      method: "POST",
+      body: JSON.stringify({ chats }),
+    })
+  );
+
+  if (res.ok) {
+    const data = await res.json();
+    return data.data;
+  }
+};
