@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import AddToMyShows from "./AddToMyShows";
 import RemoveFromMyShowsModal from "./RemoveFromMyShowsWithModal";
 import { getUserShowsAPI } from "@/utils/api";
-// import { button, user } from "@nextui-org/react";
 
 const FindShows = ({ artist, userId }) => {
   const [location, setlocation] = useState("");
@@ -86,7 +85,7 @@ const FindShows = ({ artist, userId }) => {
     };
 
     fetchUserShows();
-  }, [userId, userShows]); // double check to make sure this works
+  }, [userId, userShows]);
 
   const hasShow = (eventName) => {
     return userShows.some((show) => show.includes(eventName));
@@ -178,7 +177,9 @@ const FindShows = ({ artist, userId }) => {
               className="rounded-sm mx-2 text-black bg-gray-100 p-3 my-3 text-center text-lg"
             >
               {userId !== "none" && hasShow(event.name) ? (
-                <RemoveFromMyShowsModal event={userShows[index]} />
+                <RemoveFromMyShowsModal
+                  event={userShows.find((show) => show.includes(event.name))}
+                />
               ) : (
                 <AddToMyShows event={event} userId={userId} />
               )}
@@ -216,7 +217,9 @@ const FindShows = ({ artist, userId }) => {
               className="rounded-sm mx-2 text-black bg-gray-100 p-3 my-3 text-center text-lg"
             >
               {userId !== "none" && hasShow(event.name) ? (
-                <RemoveFromMyShowsModal event={userShows[index]} /> //make sure this changes when clicked
+                <RemoveFromMyShowsModal
+                  event={userShows.find((show) => show.includes(event.name))}
+                />
               ) : (
                 <AddToMyShows event={event} userId={userId} />
               )}
