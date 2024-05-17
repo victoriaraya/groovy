@@ -57,11 +57,7 @@ const AddToMyArtists = ({ artist, userId }) => {
             {(onClose) => (
               <>
                 <ModalBody className="text-center justify-center text-xl py-5 flex-row gap-1.5">
-                  Added! Click
-                  <Link href="/profile/my-artists" className="underline">
-                    here
-                  </Link>
-                  to see your artists.
+                  Added!
                 </ModalBody>
               </>
             )}

@@ -56,11 +56,7 @@ const AddToMyShows = ({ event, userId }) => {
               {(onClose) => (
                 <>
                   <ModalBody className="text-center justify-center text-xl py-5 flex-row gap-1.5">
-                    Added! Click
-                    <Link href="/profile/my-shows" className="underline">
-                      here
-                    </Link>
-                    to see your shows.
+                    Added!
                   </ModalBody>
                 </>
               )}

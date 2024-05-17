@@ -71,12 +71,12 @@ const ArtistPage = async ({ params }) => {
       <div>
         {hasArtist ? (
           <span className="flex justify-end p-2">
-            {await new Promise((resolve) => setTimeout(resolve, 3000))}
+            {await new Promise((resolve) => setTimeout(resolve, 2000))}
             <RemoveFromMyArtistsModal artist={artist} />
           </span>
         ) : (
           <span className="flex justify-end p-2">
-            {await new Promise((resolve) => setTimeout(resolve, 3000))}
+            {await new Promise((resolve) => setTimeout(resolve, 2000))}
             <AddToMyArtists artist={artist} userId={user ? user.id : "none"} />
           </span>
         )}
