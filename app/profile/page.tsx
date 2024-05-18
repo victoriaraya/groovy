@@ -6,7 +6,7 @@ const Profile = async () => {
   const user = await currentUser();
 
   return (
-    <div className="h-screen overflow-hidden">
+    <div className="h-screen">
       <h1 className="flex text-[100px] text-white p-4">
         Hello, {`${user.username}`}!
       </h1>
