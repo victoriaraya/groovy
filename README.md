@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Groovy
+
+https://groovy-sigma.vercel.app
+
+## Description
+
+Groovy is an interactive music website where users can explore some of my favorite artists, hear some of their music, find out about and keep track of their upcoming shows and chat with an AI assistant to learn more about them.
+
+I built this app to get more experience with React/Next.js and AI. I thought it would be fun to make a project that integrates my love for music and has everything I would want to know about an artist in one convenient place.
+
+## Demo
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/) - Framework
+- [TypeScript](https://www.typescriptlang.org/) - Language
+- [Tailwind](https://tailwindcss.com/) - CSS
+- [Prisma](https://www.prisma.io/) - ORM
+- [NeonDB](https://neon.tech/) - Database
+- [Clerk](https://clerk.com/) - Authentication
+- [Vercel](https://vercel.com) - Hosting
 
 ## Getting Started
 
-First, run the development server:
+### Clone this repository
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+    git clone https://github.com/victoriaraya/groovy.git
+
+### Install dependencies
+
+    npm install
+
+### Create .env file
+
+### Create .env.local file
+
+### Initialize the database
+
+    npx prisma generate
+    npx prisma migrate deploy
+
+### Run the development server:
+
+    npm run dev
+
+### Open the app in your browser
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Contributing
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+If you'd like to contribute, please fork the repository and make changes as you'd like. Pull requests are warmly welcome, maybe add some artists that you like!
