@@ -52,9 +52,10 @@ const FindShows = ({ artist, userId }) => {
       const events = data.data._embedded.events;
       let eventList = [];
       for (let event of events) {
-        const substr = event.name.split(" ")[0];
-        if (!eventList.some((item) => item.name.includes(substr))) {
+        const tempId = event.id;
+        if (!eventList.some((item) => item.id === tempId)) {
           let eventInfo = {};
+          eventInfo.id = `${event.id}`;
           eventInfo.name = `${event.name}`;
           eventInfo.city = `${event._embedded.venues[0].city.name}`;
           event._embedded.venues[0].country.countryCode == "US"
@@ -189,6 +190,8 @@ const FindShows = ({ artist, userId }) => {
               </p>
               <a
                 href={`${event.url}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-sm mx-2 text-black bg-gray-300 hover:bg-gray-400 active:bg-gray-500 border-solid border-slate-800 border-2 p-1.5 my-3"
               >
                 Click here for tickets
@@ -230,6 +233,8 @@ const FindShows = ({ artist, userId }) => {
               <div className="mb-2">
                 <a
                   href={`${event.url}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="rounded-sm mx-2 text-black bg-gray-300 hover:bg-gray-400 active:bg-gray-500 border-solid border-slate-800 border-2 p-1.5 my-3"
                 >
                   Click here for tickets
