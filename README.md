@@ -10,7 +10,7 @@ I built this app to get more experience with React/Next.js, AI and working with 
 
 ## Demo
 
-<img src="./public/images/groovy.gif" alt="Groovy GIF" width="600" height="350">
+![Groovy GIF](https://github.com/victoriaraya/groovy/blob/main/public/images/groovy.gif?raw=true)
 
 ## Tech Stack
 
