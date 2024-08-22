@@ -31,7 +31,7 @@ const MyShows = async () => {
       <div className="grid grid-cols-3 gap-1 gap-y-5 mx-10 pb-2">
         {parsedShows.map((show, index) => (
           <div key={index} className="flex w-[300px] gap-4">
-            <a href={show.url}>
+            <a href={show.url} target="_blank" rel="noopener noreferrer">
               <Image
                 className="h-[375px] w-[300px] rounded-sm"
                 src={`/images/${artistNames[index]
