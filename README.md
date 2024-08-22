@@ -6,9 +6,11 @@ https://groovy-sigma.vercel.app
 
 Groovy is an interactive music website where users can explore some of my favorite artists, hear some of their music, find out about and keep track of their upcoming shows and chat with an AI assistant to learn more about them.
 
-I built this app to get more experience with React/Next.js and AI. I thought it would be fun to make a project that integrates my love for music and has everything I would want to know about an artist in one convenient place.
+I built this app to get more experience with React/Next.js, AI and working with external APIs. I wanted to create a project that integrates my love for music and includes everything I would want to know about an artist in one convenient place. This project not only showcases my technical skills but also allows the user to learn more about me through the music I love.
 
 ## Demo
+
+<img src="./public/images/groovy.gif" alt="Groovy GIF" width="600" height="350">
 
 ## Tech Stack
 
@@ -19,6 +21,8 @@ I built this app to get more experience with React/Next.js and AI. I thought it 
 - [NeonDB](https://neon.tech/) - Database
 - [Clerk](https://clerk.com/) - Authentication
 - [Vercel](https://vercel.com) - Hosting
+- [Ticketmaster Discovery API](https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/) - API for accessing event information
+- [OpenAI API](https://openai.com/api/) - API for integrating AI capabilities
 
 ## Getting Started
 
@@ -32,7 +36,25 @@ I built this app to get more experience with React/Next.js and AI. I thought it 
 
 ### Create .env file
 
+The .env file will be used to store database urls for prisma to access. There is a pooled and unpooled connection string to accommodate both pooled and unpooled connections. Once you have a project set up in your NeonDB profile, these can be found in your project where it says connection string.
+
+    DATABASE_URL='your-pooled-database-url-here'
+    DATABASE_URL_UNPOOLED='your-unpooled-database-url-here'
+
 ### Create .env.local file
+
+The .env.local file will be used for all other env variables needed for the app. All keys can be found in their respective profiles. The next public clerk urls are to ensure proper routing with clerk.
+
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY='your-public-clerk-key-here'
+    CLERK_SECRET_KEY='your-secret-clerk-key-here'
+
+    NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+    NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+    NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/profile
+    NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/new-user
+
+    TICKETMASTER_API='your-ticketmaster-key-here'
+    OPENAI_API_KEY='your-openAI-key-here'
 
 ### Initialize the database
 

@@ -13,7 +13,7 @@ export const POST = async (request) => {
       },
       ...chats,
     ],
-    model: "gpt-3.5-turbo",
+    model: "gpt-4o-mini",
   });
 
   const message = completion.choices[0].message;
