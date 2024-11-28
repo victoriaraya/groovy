@@ -51,7 +51,7 @@ export default async function RootLayout({
               <span className="justify-center">
                 <Link href="/">Groovy</Link>
               </span>
-              <span className="flex justify-end -mt-9 mr-4">
+              <span className="flex justify-end lg:-mt-9 lg:mr-4">
                 <Link href={href}>
                   <CgProfile />
                 </Link>

@@ -11,14 +11,14 @@ export default function Home() {
 
   return (
     <div className="bg-zinc-700 text-white">
-      <div className="grid grid-cols-3 gap-y-7 gap-x-5">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-7 lg:gap-x-5 px-5 lg:px-0">
         <div>
           <Artist
             id={1}
             onHover={setHoveredElement}
             onLeave={handleMouseLeave}
             hoveredElement={hoveredElement}
-            customStyle1="relative grayscale hover:grayscale-0 ml-16 h-[440px] w-[350px]"
+            customStyle1="relative grayscale hover:grayscale-0 lg:ml-16 h-[440px] w-[350px]"
             customStyle2="flex gap-1 absolute bottom-2 -right-7 text-3xl bg-zinc-700 rounded-md p-1"
           />
         </div>
@@ -29,7 +29,7 @@ export default function Home() {
             onHover={setHoveredElement}
             onLeave={handleMouseLeave}
             hoveredElement={hoveredElement}
-            customStyle1="relative grayscale hover:grayscale-0 h-[330px] w-[460px] -ml-28 mt-12"
+            customStyle1="relative grayscale hover:grayscale-0 h-[330px] w-[460px] lg:-ml-28 lg:mt-12"
             customStyle2="flex gap-1 absolute bottom-2 -right-7 text-3xl bg-zinc-700 rounded-md p-1"
           />
         </div>
@@ -51,7 +51,7 @@ export default function Home() {
             onHover={setHoveredElement}
             onLeave={handleMouseLeave}
             hoveredElement={hoveredElement}
-            customStyle1="relative grayscale hover:grayscale-0 h-[320px] w-[500px] ml-14 mt-7"
+            customStyle1="relative grayscale hover:grayscale-0 h-[320px] w-[500px] lg:ml-14 lg:mt-7"
             customStyle2="flex gap-1 absolute bottom-2 -right-[28px] text-3xl bg-zinc-700 rounded-md p-1"
           />
         </div>
@@ -62,7 +62,7 @@ export default function Home() {
             onHover={setHoveredElement}
             onLeave={handleMouseLeave}
             hoveredElement={hoveredElement}
-            customStyle1="relative grayscale hover:grayscale-0 -ml-6 w-[390px] h-[390px]"
+            customStyle1="relative grayscale hover:grayscale-0 lg:-ml-6 w-[390px] h-[390px]"
             customStyle2="flex gap-1 absolute bottom-2 -left-16 text-3xl bg-zinc-700 rounded-md p-1"
           />
         </div>
@@ -84,7 +84,7 @@ export default function Home() {
             onHover={setHoveredElement}
             onLeave={handleMouseLeave}
             hoveredElement={hoveredElement}
-            customStyle1="relative grayscale hover:grayscale-0 ml-24 mt-7 w-[375px] h-[375px]"
+            customStyle1="relative grayscale hover:grayscale-0 lg:ml-24 lg:mt-7 w-[375px] h-[375px]"
             customStyle2="flex gap-1 absolute bottom-2 -right-8 text-3xl bg-zinc-700 rounded-md p-1"
           />
         </div>
@@ -95,7 +95,7 @@ export default function Home() {
             onHover={setHoveredElement}
             onLeave={handleMouseLeave}
             hoveredElement={hoveredElement}
-            customStyle1="relative grayscale hover:grayscale-0 -ml-4 -mt-5 w-[380px] h-[410px]"
+            customStyle1="relative grayscale hover:grayscale-0 lg:-ml-4 lg:-mt-5 w-[380px] h-[410px]"
             customStyle2="flex gap-1 absolute bottom-2 -left-16 text-3xl bg-zinc-700 rounded-md p-1"
           />
         </div>
