@@ -31,7 +31,7 @@ function Artist({
           alt={artists[id - 1].name}
         />
         <div className={customStyle2}>
-          <span className="animate-pulse text-2xl pt-1">
+          <span className="hidden sm:block sm:animate-pulse sm:text-2xl sm:pt-1">
             {hoveredElement === artistNameForImgTag ? <FaPlus /> : <FaMinus />}
           </span>
           {artists[id - 1].name}
