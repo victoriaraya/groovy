@@ -67,7 +67,7 @@ const ArtistPage = async ({ params }) => {
   );
 
   return (
-    <div className="bg-zinc-700 text-white grid grid-cols-[1fr_.80fr]">
+    <div className="bg-zinc-700 text-white grid grid-cols-1 sm:grid-cols-[1fr_.80fr]">
       <div>
         {hasArtist ? (
           <span className="flex justify-end p-2">
@@ -83,32 +83,36 @@ const ArtistPage = async ({ params }) => {
         <p
           className={
             artist.name == "Kaytranada"
-              ? "text-[110px] p-4 pl-7 self-end pb-8"
-              : "text-9xl p-4 pl-7 self-end pb-8"
+              ? "text-6xl sm:text-[110px] p-4 sm:pl-7 text-center sm:text-left sm:self-end sm:pb-8"
+              : "text-6xl sm:text-9xl p-4 sm:pl-7 text-center sm:text-left sm:self-end sm:pb-8"
           }
         >
           {artist.name}
         </p>
       </div>
-      <div className="row-span-2 pt-2">
+      <div className="row-span-2 pt-2 pb-6 sm:pb-0">
         <ImageCarousel imagePaths={imagePaths} />
       </div>
-      <div className="flex flex-col">
-        <div className="flex">
-          <div className="text-xl pl-4 basis-1/2">
-            <p className="pl-2 pb-1">Our favorites</p>
+      <div className="grid grid-cols-1 sm:flex sm:flex-col">
+        <div className="sm:flex">
+          <div className="text-xl sm:pl-4 basis-1/2 px-4 sm:px-0 pb-8 sm:pb-0">
+            <p className="text-center sm:text-left sm:pl-2 pb-1">
+              Our favorites
+            </p>
             <div className="">{songs[artistName]}</div>
           </div>
-          <div className="text-xl ml-8 pr-3 basis-1/2">
-            <p className="pb-1">Bio</p>
-            <p className="text-base text-left">{artist.bio}</p>
+          <div className="text-xl sm:ml-8 sm:pr-3 basis-1/2 pb-8 sm:pb-0">
+            <p className="text-center sm:text-left pb-1">Bio</p>
+            <p className="text-base text-center sm:text-left px-4 sm:px-0">
+              {artist.bio}
+            </p>
           </div>
         </div>
-        <div className="flex pt-5">
-          <div className="basis-1/2 pl-4">
+        <div className="sm:flex pt-5">
+          <div className="basis-1/2 sm:pl-4 px-4 sm:px-0 pb-8 sm:pb-0 text-center sm:text-left">
             <FindShows artist={artist} userId={user ? user.id : "none"} />
           </div>
-          <div className="basis-1/2 pl-4">
+          <div className="basis-1/2 sm:pl-4 px-4 sm:px-0 pb-8 sm:pb-0 text-center sm:text-left">
             <Chat artist={artist} />
           </div>
         </div>

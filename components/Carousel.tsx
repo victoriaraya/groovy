@@ -8,7 +8,11 @@ const ImageCarousel = ({ imagePaths }) => {
     <Carousel showThumbs={false} showStatus={false}>
       {imagePaths.map((imagePath, index) => (
         <div key={index}>
-          <img src={imagePath} alt={`Image ${index}`} className="h-[750px]" />
+          <img
+            src={imagePath}
+            alt={`Image ${index}`}
+            className="h-[500px] sm:h-[750px]"
+          />
         </div>
       ))}
     </Carousel>
