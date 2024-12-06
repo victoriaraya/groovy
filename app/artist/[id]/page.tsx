@@ -90,29 +90,29 @@ const ArtistPage = async ({ params }) => {
           {artist.name}
         </p>
       </div>
-      <div className="row-span-2 pt-2 pb-6 sm:pb-0">
+      <div className="row-span-2 pt-2 pb-10 sm:pb-0">
         <ImageCarousel imagePaths={imagePaths} />
       </div>
       <div className="grid grid-cols-1 sm:flex sm:flex-col">
         <div className="sm:flex">
-          <div className="text-xl sm:pl-4 basis-1/2 px-4 sm:px-0 pb-8 sm:pb-0">
-            <p className="text-center sm:text-left sm:pl-2 pb-1">
+          <div className="text-xl sm:pl-4 basis-1/2 px-4 sm:px-0 pb-16 sm:pb-0">
+            <p className="text-center sm:text-left sm:pl-2 pb-3 sm:pb-1">
               Our favorites
             </p>
             <div className="">{songs[artistName]}</div>
           </div>
-          <div className="text-xl sm:ml-8 sm:pr-3 basis-1/2 pb-8 sm:pb-0">
-            <p className="text-center sm:text-left pb-1">Bio</p>
+          <div className="text-xl sm:ml-8 sm:pr-3 basis-1/2 pb-16 sm:pb-0">
+            <p className="text-center sm:text-left pb-3 sm:pb-1">Bio</p>
             <p className="text-base text-center sm:text-left px-4 sm:px-0">
               {artist.bio}
             </p>
           </div>
         </div>
         <div className="sm:flex pt-5">
-          <div className="basis-1/2 sm:pl-4 px-4 sm:px-0 pb-8 sm:pb-0 text-center sm:text-left">
+          <div className="basis-1/2 sm:pl-4 px-4 sm:px-0 pb-20 sm:pb-0 text-center sm:text-left">
             <FindShows artist={artist} userId={user ? user.id : "none"} />
           </div>
-          <div className="basis-1/2 sm:pl-4 px-4 sm:px-0 pb-8 sm:pb-0 text-center sm:text-left">
+          <div className="basis-1/2 sm:pl-4 px-4 sm:px-0 pb-14 sm:pb-0 text-center sm:text-left">
             <Chat artist={artist} />
           </div>
         </div>

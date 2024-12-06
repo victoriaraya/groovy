@@ -38,7 +38,7 @@ const Chat = ({ artist }) => {
 
   return (
     <div>
-      <p className="text-xl pb-2">{`Ask our assistant about ${artist.name}`}</p>
+      <p className="text-xl pb-3 sm:pb-2">{`Ask our assistant about ${artist.name}`}</p>
       <div
         className={
           chats && chats.length

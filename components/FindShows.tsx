@@ -94,7 +94,7 @@ const FindShows = ({ artist, userId }) => {
 
   return (
     <div>
-      <p className="text-xl pb-1">{`Find ${artist.name} shows near you `}</p>
+      <p className="text-xl pb-3 sm:pb-1">{`Find ${artist.name} shows near you `}</p>
       <form
         onSubmit={async (e) => {
           e.preventDefault();
