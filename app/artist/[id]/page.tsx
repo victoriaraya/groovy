@@ -95,23 +95,26 @@ const ArtistPage = async ({ params }) => {
       </div>
       <div className="grid grid-cols-1 sm:flex sm:flex-col">
         <div className="sm:flex">
-          <div className="text-xl sm:pl-4 basis-1/2 px-4 sm:px-0 pb-16 sm:pb-0">
+          <div className="text-xl sm:pl-4 basis-1/2 px-4 sm:px-0 pb-12 sm:pb-0">
             <p className="text-center sm:text-left sm:pl-2 pb-3 sm:pb-1">
               Our favorites
             </p>
             <div className="">{songs[artistName]}</div>
           </div>
+          <div className="w-full border-b-2 border-white mb-10 sm:hidden"></div>
           <div className="text-xl sm:ml-8 sm:pr-3 basis-1/2 pb-16 sm:pb-0">
             <p className="text-center sm:text-left pb-3 sm:pb-1">Bio</p>
             <p className="text-base text-center sm:text-left px-4 sm:px-0">
               {artist.bio}
             </p>
           </div>
+          <div className="w-full border-b-2 border-white mb-12 sm:hidden"></div>
         </div>
         <div className="sm:flex pt-5">
-          <div className="basis-1/2 sm:pl-4 px-4 sm:px-0 pb-20 sm:pb-0 text-center sm:text-left">
+          <div className="basis-1/2 sm:pl-4 px-4 sm:px-0 pb-14 sm:pb-0 text-center sm:text-left">
             <FindShows artist={artist} userId={user ? user.id : "none"} />
           </div>
+          <div className="w-full border-b-2 border-white mb-16 sm:hidden"></div>
           <div className="basis-1/2 sm:pl-4 px-4 sm:px-0 pb-14 sm:pb-0 text-center sm:text-left">
             <Chat artist={artist} />
           </div>
