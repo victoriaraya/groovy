@@ -8,7 +8,9 @@ const MyArtists = async () => {
   const artists = await getUserArtists();
 
   return (
-    <div className={artists.length <= 3 ? "h-screen w-full" : "h-full w-full"}>
+    <div
+      className={artists.length <= 3 ? "sm:h-screen w-full" : "h-full w-full"}
+    >
       {artists.length ? (
         <h1 className="text-white text-lg pb-6 bg-zinc-700">
           Click on an artist to go to their page
@@ -23,7 +25,7 @@ const MyArtists = async () => {
           in the top right corner.
         </h1>
       )}
-      <div className="grid gird-cols-1 sm:grid-cols-3 gap-1 mx-10">
+      <div className="grid gird-cols-1 sm:grid-cols-3 gap-9 sm:gap-1 mx-10 mt-16 sm:mt-0">
         {artists.map((artist, index) => (
           <div key={index} className="flex w-[300px] gap-4">
             <Link href={`/artist/${artist.id}`}>
@@ -36,7 +38,7 @@ const MyArtists = async () => {
                 height={375}
                 alt={artist.name}
               />
-              <div className="flex justify-between text-white text-xl pt-1 h-10 w-full">
+              <div className="flex justify-between text-white text-xl pt-2 sm:pt-1 h-10 w-full">
                 <p>{artist.name}</p>
               </div>
             </Link>

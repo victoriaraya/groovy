@@ -17,7 +17,7 @@ const MyShows = async () => {
   }
 
   return (
-    <div className={shows.length <= 3 ? "h-screen w-full" : "h-full w-full"}>
+    <div className={shows.length <= 3 ? "sm:h-screen w-full" : "h-full w-full"}>
       {shows.length ? (
         <h1 className="text-white text-lg pb-6">
           Click on an artist to get more information about their show
@@ -28,7 +28,7 @@ const MyShows = async () => {
           page to add.
         </h1>
       )}
-      <div className="grid gird-cols-1 sm:grid-cols-3 gap-1 gap-y-5 mx-10 pb-2">
+      <div className="grid gird-cols-1 sm:grid-cols-3 gap-1 gap-y-9 sm:gap-y-5 mx-10 pb-2 mt-9 sm:mt-0">
         {parsedShows.map((show, index) => (
           <div key={index} className="flex w-[300px] gap-4">
             <a href={show.url} target="_blank" rel="noopener noreferrer">
@@ -41,7 +41,7 @@ const MyShows = async () => {
                 height={375}
                 alt={show.name}
               />
-              <div className="flex justify-between text-white text-lg pt-1 h-10 w-full">
+              <div className="flex justify-between text-white text-lg pt-2 sm:pt-1 h-10 w-full">
                 <p className="pb-2">{show.name}</p>
               </div>
             </a>

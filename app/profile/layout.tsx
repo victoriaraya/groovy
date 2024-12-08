@@ -33,9 +33,9 @@ export default function ProfileLayout({ children }) {
           }}
         />
       </header>
-      <aside className="absolute left-0 top-0 h-full w-64 bg-zinc-500">
-        <div className="flex flex-col space-y-8 w-full text-center items-center">
-          <ul className="px-4">
+      <aside className="absolute left-0 top-0 sm:h-full w-full sm:w-64 bg-zinc-500 border-t-4 border-gray-100 sm:border-t-0">
+        <div className="sm:flex sm:flex-col sm:space-y-8 w-full text-center items-center">
+          <ul className="grid grid-cols-2 sm:flex sm:flex-col px-4">
             {links.map((link) => (
               <li key={link.name} className="my-6 text-2xl hover:text-white">
                 <Link href={link.path}>{link.name}</Link>
@@ -44,8 +44,8 @@ export default function ProfileLayout({ children }) {
           </ul>
         </div>
       </aside>
-      <div className="ml-64 h-full w-[calc(100vw-200px)]">
-        <header className="h-2 w-screen bg-gray-100"></header>
+      <div className="sm:ml-64 h-full sm:w-[calc(100vw-200px)]">
+        <header className="hidden sm:block h-2 w-screen bg-gray-100"></header>
         <div className="h-full p-4">{children}</div>
       </div>
     </div>
