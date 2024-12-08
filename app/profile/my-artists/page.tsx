@@ -23,7 +23,7 @@ const MyArtists = async () => {
           in the top right corner.
         </h1>
       )}
-      <div className="grid grid-cols-3 gap-1 mx-10">
+      <div className="grid gird-cols-1 sm:grid-cols-3 gap-1 mx-10">
         {artists.map((artist, index) => (
           <div key={index} className="flex w-[300px] gap-4">
             <Link href={`/artist/${artist.id}`}>
