@@ -24,7 +24,7 @@ function Artist({
     >
       <Link href={`/artist/${id}`}>
         <Image
-          className="h-full w-full transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 rounded-sm"
+          className="h-full w-full transition ease-in-out sm:hover:-translate-y-1 sm:hover:scale-110 duration-300 rounded-sm"
           src={`/images/${artistNameForImgTag}.jpg`}
           width={400}
           height={400}
