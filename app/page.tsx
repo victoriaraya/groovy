@@ -19,7 +19,7 @@ export default function Home() {
             onLeave={handleMouseLeave}
             hoveredElement={hoveredElement}
             customStyle1="relative grayscale hover:grayscale-0 lg:ml-16 sm:h-[440px] sm:w-[350px] pt-5 sm:pt-0"
-            customStyle2="flex gap-1 absolute sm:bottom-2 sm:-right-7 text-3xl bg-zinc-700 rounded-md p-1"
+            customStyle2="flex gap-1 absolute sm:bottom-2 sm:-right-7 text-3xl bg-zinc-700 rounded-md p-1 pt-3 sm:pt-1"
           />
         </div>
         <div></div>
@@ -30,7 +30,7 @@ export default function Home() {
             onLeave={handleMouseLeave}
             hoveredElement={hoveredElement}
             customStyle1="relative grayscale hover:grayscale-0 sm:h-[330px] sm:w-[460px] lg:-ml-28 lg:mt-12"
-            customStyle2="flex gap-1 absolute sm:bottom-2 sm:-right-7 text-3xl bg-zinc-700 rounded-md p-1"
+            customStyle2="flex gap-1 absolute sm:bottom-2 sm:-right-7 text-3xl bg-zinc-700 rounded-md p-1 pt-3 sm:pt-1"
           />
         </div>
         <div></div>
@@ -41,7 +41,7 @@ export default function Home() {
             onLeave={handleMouseLeave}
             hoveredElement={hoveredElement}
             customStyle1="relative grayscale hover:grayscale-0 sm:h-[380px] sm:w-[380px]"
-            customStyle2="flex gap-1 absolute sm:bottom-2 sm:-left-16 text-3xl bg-zinc-700 rounded-md p-1"
+            customStyle2="flex gap-1 absolute sm:bottom-2 sm:-left-16 text-3xl bg-zinc-700 rounded-md p-1 pt-3 sm:pt-1"
           />
         </div>
         <div></div>
@@ -52,7 +52,7 @@ export default function Home() {
             onLeave={handleMouseLeave}
             hoveredElement={hoveredElement}
             customStyle1="relative grayscale hover:grayscale-0 sm:h-[320px] sm:w-[500px] lg:ml-14 lg:mt-7"
-            customStyle2="flex gap-1 absolute sm:bottom-2 sm:-right-[28px] text-3xl bg-zinc-700 rounded-md p-1"
+            customStyle2="flex gap-1 absolute sm:bottom-2 sm:-right-[28px] text-3xl bg-zinc-700 rounded-md p-1 pt-3 sm:pt-1"
           />
         </div>
         <div></div>
@@ -63,7 +63,7 @@ export default function Home() {
             onLeave={handleMouseLeave}
             hoveredElement={hoveredElement}
             customStyle1="relative grayscale hover:grayscale-0 lg:-ml-6 sm:w-[390px] sm:h-[390px]"
-            customStyle2="flex gap-1 absolute sm:bottom-2 sm:-left-16 text-3xl bg-zinc-700 rounded-md p-1"
+            customStyle2="flex gap-1 absolute sm:bottom-2 sm:-left-16 text-3xl bg-zinc-700 rounded-md p-1 pt-3 sm:pt-1"
           />
         </div>
         <div></div>
@@ -74,7 +74,7 @@ export default function Home() {
             onLeave={handleMouseLeave}
             hoveredElement={hoveredElement}
             customStyle1="relative grayscale hover:grayscale-0 sm:h-[380px] sm:w-[380px]"
-            customStyle2="flex gap-1 absolute sm:bottom-2 sm:-left-16 text-3xl bg-zinc-700 rounded-md p-1"
+            customStyle2="flex gap-1 absolute sm:bottom-2 sm:-left-16 text-3xl bg-zinc-700 rounded-md p-1 pt-3 sm:pt-1"
           />
         </div>
         <div></div>
@@ -85,7 +85,7 @@ export default function Home() {
             onLeave={handleMouseLeave}
             hoveredElement={hoveredElement}
             customStyle1="relative grayscale hover:grayscale-0 lg:ml-24 lg:mt-7 sm:w-[375px] sm:h-[375px]"
-            customStyle2="flex gap-1 absolute sm:bottom-2 sm:-right-8 text-3xl bg-zinc-700 rounded-md p-1"
+            customStyle2="flex gap-1 absolute sm:bottom-2 sm:-right-8 text-3xl bg-zinc-700 rounded-md p-1 pt-3 sm:pt-1"
           />
         </div>
         <div></div>
@@ -96,7 +96,7 @@ export default function Home() {
             onLeave={handleMouseLeave}
             hoveredElement={hoveredElement}
             customStyle1="relative grayscale hover:grayscale-0 lg:-ml-4 lg:-mt-5 sm:w-[380px] sm:h-[410px]"
-            customStyle2="flex gap-1 absolute sm:bottom-2 sm:-left-16 text-3xl bg-zinc-700 rounded-md p-1"
+            customStyle2="flex gap-1 absolute sm:bottom-2 sm:-left-16 text-3xl bg-zinc-700 rounded-md p-1 pt-3 sm:pt-1"
           />
         </div>
       </div>
