@@ -16,7 +16,7 @@ const MyArtists = async () => {
       }
     >
       {artists.length ? (
-        <h1 className="text-white text-lg pb-6 bg-zinc-700">
+        <h1 className="text-white text-lg pb-6 bg-zinc-700 mt-24 sm:mt-0 text-center sm:text-left">
           Click on an artist to go to their page
         </h1>
       ) : (
@@ -29,7 +29,7 @@ const MyArtists = async () => {
           in the top right corner.
         </h1>
       )}
-      <div className="grid gird-cols-1 sm:grid-cols-3 gap-9 sm:gap-1 mx-10 mt-16 sm:mt-0">
+      <div className="grid gird-cols-1 sm:grid-cols-3 gap-9 sm:gap-1 mx-10 mt-8 sm:mt-0">
         {artists.map((artist, index) => (
           <div key={index} className="flex w-[300px] gap-4">
             <Link href={`/artist/${artist.id}`}>

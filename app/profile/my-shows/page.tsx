@@ -19,7 +19,7 @@ const MyShows = async () => {
   return (
     <div className={shows.length <= 3 ? "sm:h-screen w-full" : "h-full w-full"}>
       {shows.length ? (
-        <h1 className="text-white text-lg pb-6">
+        <h1 className="text-white text-lg pb-6 mt-24 sm:mt-0 text-center sm:text-left">
           Click on an artist to get more information about their show
         </h1>
       ) : (
