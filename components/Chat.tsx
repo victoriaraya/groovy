@@ -42,7 +42,7 @@ const Chat = ({ artist }) => {
       <div
         className={
           chats && chats.length
-            ? "rounded-sm text-black bg-gray-100 p-2 my-2 mr-4 overflow-auto max-h-64"
+            ? "rounded-sm text-black bg-gray-100 p-2 my-2 sm:mr-4 overflow-auto max-h-64"
             : ""
         }
       >
@@ -72,7 +72,7 @@ const Chat = ({ artist }) => {
       <div
         className={
           errorMessage
-            ? "rounded-sm text-black bg-gray-100 p-2 my-2 mr-4 text-center"
+            ? "rounded-sm text-black bg-gray-100 p-2 my-2 sm:mr-4 text-center"
             : "hidden"
         }
       >
@@ -89,7 +89,7 @@ const Chat = ({ artist }) => {
         onSubmit={(e) => chat(e, message)}
         className={
           (chats && chats.length) || errorMessage
-            ? "flex justify-center mr-4 mt-3"
+            ? "flex justify-center sm:mr-4 mt-3"
             : ""
         }
       >
