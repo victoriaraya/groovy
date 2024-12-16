@@ -28,7 +28,7 @@ const MyShows = async () => {
           page to add.
         </h1>
       )}
-      <div className="grid gird-cols-1 sm:grid-cols-3 gap-1 gap-y-9 sm:gap-y-5 mx-10 pb-2 mt-9 sm:mt-0">
+      <div className="grid gird-cols-1 sm:grid-cols-3 gap-1 gap-y-9 sm:gap-y-5 mx-10 pb-2 mt-5 sm:mt-0">
         {parsedShows.map((show, index) => (
           <div key={index} className="flex w-[300px] gap-4">
             <a href={show.url} target="_blank" rel="noopener noreferrer">
