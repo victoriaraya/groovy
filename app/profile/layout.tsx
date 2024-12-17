@@ -23,7 +23,7 @@ export default function ProfileLayout({ children }) {
           <AiOutlineHome />
         </Link>
       </header>
-      <header className="absolute top-0 right-0 -mt-[50px] mr-3 sm:-mt-11 sm:mr-4">
+      <header className="absolute top-0 right-0 -mt-[50px] mr-3 sm:-mt-12 lg:-mt-11 sm:mr-3 lg:mr-4">
         <UserButton
           afterSignOutUrl="/"
           appearance={{
