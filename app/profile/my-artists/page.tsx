@@ -20,10 +20,10 @@ const MyArtists = async () => {
           Click on an artist to go to their page
         </h1>
       ) : (
-        <h1 className="sm:flex justify-start align-top text-white text-lg bg-zinc-700 mt-28 sm:mt-0">
+        <h1 className="sm:grid justify-start align-top text-white text-lg bg-zinc-700 mt-28 sm:mt-0 text-center sm:text-left">
           Keep track of your favorite artists here! You can add artists from
           their page, look for the{" "}
-          <span className="sm:pt-0.5 px-1.5 animate-pulse">
+          <span className="sm:pt-0.5 sm:px-1.5 animate-pulse">
             <FaPlus />
           </span>{" "}
           in the top right corner.

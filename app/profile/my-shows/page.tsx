@@ -17,13 +17,17 @@ const MyShows = async () => {
   }
 
   return (
-    <div className={shows.length <= 3 ? "sm:h-screen w-full" : "h-full w-full"}>
+    <div
+      className={
+        shows.length <= 3 ? "min-h-screen sm:h-screen w-full" : "h-full w-full"
+      }
+    >
       {shows.length ? (
         <h1 className="text-white text-lg pb-6 mt-24 sm:mt-0 text-center sm:text-left">
           Click on an artist to get more information about their show
         </h1>
       ) : (
-        <h1 className="text-white text-lg">
+        <h1 className="text-white text-lg mt-28 sm:mt-0 text-center sm:text-left">
           Keep track of your favorite shows here! Search for shows on an artist
           page to add.
         </h1>
